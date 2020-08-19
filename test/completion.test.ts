@@ -22,7 +22,7 @@ describe('Completion should work in multiple different scenarios', () => {
     await updateSettings('schemas', {
       [schemaPath]: 'completion.yaml',
     });
-    await sleep(10000);
+
     await testCompletion(docUri, new vscode.Position(0, 0), {
       items: [
         {
