@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------------------------ */
 
 import * as vscode from 'vscode';
-import { getDocUri, activate, testCompletion, updateSettings, testCompletionNotEmpty, resetSettings } from './helper';
+import { getDocUri, activate, testCompletion, updateSettings, testCompletionNotEmpty, resetSettings, sleep } from './helper';
 import * as path from 'path';
 
 describe('Completion should work in multiple different scenarios', () => {
@@ -22,10 +22,7 @@ describe('Completion should work in multiple different scenarios', () => {
     await updateSettings('schemas', {
       [schemaPath]: 'completion.yaml',
     });
-    console.error('AAAAAA!!!!!!!!!!!!');
-    console.error(docUri.toString());
-    console.error(schemaPath);
-    console.error('@@@@@@@@@@@@@@@@@@');
+    await sleep(1000);
     await testCompletion(docUri, new vscode.Position(0, 0), {
       items: [
         {
